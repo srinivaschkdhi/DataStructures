@@ -26,7 +26,9 @@ public class BinaryTree {
         System.out.println();
         postOrderTravseral(rootNode);
         System.out.println();
+        postOrderTraversalIterative(rootNode);
 
+        System.out.println();
         System.out.println("INORDER TRAVERSALS");
 
         System.out.println();
@@ -50,6 +52,20 @@ public class BinaryTree {
 
         preOrderTraversal(root.right);
 
+    }
+
+    static void preOrderIterative(Node root) {
+        if (root == null) {
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+            System.out.print(root.key);
+            if (root.right != null) stack.add(root.right);
+            if (root.left != null) stack.add(root.left);
+        }
     }
 
     static void postOrderTravseral(Node root) {
@@ -105,19 +121,34 @@ public class BinaryTree {
         }
     }
 
-    static void preOrderIterative(Node root) {
+    static void postOrderTraversalIterative(Node root){
         if (root == null) {
             return;
         }
-        Stack<Node> stack = new Stack<>();
-        stack.add(root);
-        while (!stack.isEmpty()) {
-            root = stack.pop();
-            System.out.print(root.key);
-            if (root.right != null) stack.add(root.right);
-            if (root.left != null) stack.add(root.left);
+
+        Stack<Node> stackOne = new Stack<>();
+        Stack<Node> stackTwo = new Stack<>();
+
+        stackOne.add(root);
+        while(!stackOne.isEmpty()){
+            root = stackOne.pop();
+            stackTwo.add(root);
+
+            if(root.left!=null)
+                stackOne.add(root.left);
+
+            if(root.right!=null)
+                stackOne.add(root.right);
         }
+
+        while(!stackTwo.isEmpty()){
+            root = stackTwo.pop();
+            System.out.print(root.key);
+        }
+
     }
+
+
 
 }
 
