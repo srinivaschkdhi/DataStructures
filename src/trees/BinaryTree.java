@@ -22,17 +22,15 @@ public class BinaryTree {
         System.out.println();
 
         System.out.println("POSTORDER TRAVERSALS");
-
-        System.out.println();
         postOrderTravseral(rootNode);
         System.out.println();
         postOrderTraversalIterative(rootNode);
 
         System.out.println();
         System.out.println("INORDER TRAVERSALS");
-
-        System.out.println();
         inOrderTraversal(rootNode);
+        System.out.println();
+        inOrderTraveralIterative(rootNode);
 
         System.out.println();
         System.out.println("LEVELORDER TRAVERSALS");
@@ -83,6 +81,27 @@ public class BinaryTree {
         inOrderTraversal(root.left);
         System.out.print(root.key);
         inOrderTraversal(root.right);
+    }
+
+    static void inOrderTraveralIterative(Node root){
+        Stack<Node> stack = new Stack<>();
+        if (root == null) {
+            return;
+        }
+        while(true){
+            if(root!=null)
+            {
+                stack.push(root);
+                root = root.left;
+            }else{
+                if(stack.isEmpty())
+                    break;
+                root = stack.pop();
+                System.out.print(root.key);
+                root = root.right;
+
+            }
+        }
     }
 
     static void levelOrder(Node root) {
