@@ -38,6 +38,9 @@ public class BinaryTree {
         System.out.println();
         levelOrderGeeks(rootNode);
 
+        System.out.println();
+        System.out.println("REVERSE LEVELORDER TRAVERSALS");
+        reverseLevelOrderTraversal(rootNode);
 
     }
 
@@ -84,22 +87,20 @@ public class BinaryTree {
     }
 
     static void inOrderTraveralIterative(Node root){
-        Stack<Node> stack = new Stack<>();
         if (root == null) {
             return;
         }
+        Stack<Node> stack = new Stack<>();
         while(true){
             if(root!=null)
             {
                 stack.push(root);
                 root = root.left;
             }else{
-                if(stack.isEmpty())
-                    break;
+                if(stack.isEmpty())break;
                 root = stack.pop();
                 System.out.print(root.key);
                 root = root.right;
-
             }
         }
     }
@@ -167,6 +168,27 @@ public class BinaryTree {
 
     }
 
+    static void reverseLevelOrderTraversal(Node root){
+        if (root == null) {
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            root = queue.poll();
+            if(root.right!=null)
+                    queue.add(root.right);
+            if(root.left!=null)
+                queue.add(root.left);
+            stack.push(root);
+        }
+
+        while(!stack.isEmpty()){
+            root = stack.pop();
+            System.out.print(root.key);//sout(stack.pop().key);
+        }
+    }
 
 
 }
