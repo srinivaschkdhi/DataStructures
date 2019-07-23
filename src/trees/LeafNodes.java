@@ -36,4 +36,15 @@ public class LeafNodes {
         }
         return count;
     }
+
+    private static int getLeafCountRecursive(Node root){
+        if (root == null) {
+            return 0;
+        }
+
+        if(root.left == null && root.right == null)
+            return 1;
+        else
+            return getLeafCountRecursive(root.left)+getLeafCountRecursive(root.right);
+    }
 }
