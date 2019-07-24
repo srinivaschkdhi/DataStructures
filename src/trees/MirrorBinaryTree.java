@@ -22,7 +22,7 @@ public class MirrorBinaryTree {
         //System.out.println();
         //inOrderTraversal(rootNode);
         System.out.println();
-        rootNode = mirrorTree(rootNode);
+        rootNode = mirrorBTIterative(rootNode);
         inOrderTraversal(rootNode);
     }
 
@@ -44,7 +44,6 @@ public class MirrorBinaryTree {
         if (root == null) {
             return;
         }
-
         Stack<Node> stack = new Stack<>();
         while(true){
             if(root!=null){
@@ -63,19 +62,27 @@ public class MirrorBinaryTree {
 
 
     private static Node mirrorBTIterative(Node root){
+        Node current = root;
+
         Stack<Node> stack = new Stack<>();
-        stack.add(root);
+        stack.add(current);
 
         while(!stack.isEmpty()){
-            root = stack.pop();
+            current = stack.pop();
 
-            if(root.left!=null){
-                stack.add(root.left);
+            Node temp = current.left;
+            current.left = current.right;
+            current.right = temp;
+
+            if(current.right!=null){
+                stack.add(current.right);
             }
 
-            if(root.right!=null){
-                stack.add(root.right);
+
+            if(current.left!=null){
+                stack.add(current.left);
             }
+
 
         }
        return root;
