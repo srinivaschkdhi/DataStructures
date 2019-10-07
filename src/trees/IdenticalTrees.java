@@ -36,7 +36,7 @@ public class IdenticalTrees {
 
             if (n1.key != n2.key) return false;
 
-            if (n1.left != null && n2.right != null) {
+            if (n1.left != null && n2.left != null) {
                 queue1.add(n1.left);
                 queue2.add(n2.left);
             } else if ((n1.left == null && n2.left != null) || (n1.left != null && n2.left == null)) return false;

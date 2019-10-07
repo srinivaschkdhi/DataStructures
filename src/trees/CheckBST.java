@@ -3,7 +3,7 @@ package trees;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class CheckBST {
+public class    CheckBST {
     public static void main(String[] args) {
 
         Node rootNode = new Node(2);

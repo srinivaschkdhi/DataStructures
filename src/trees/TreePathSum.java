@@ -19,10 +19,8 @@ public class TreePathSum {
         }
 
         val = val*10+root.key;
-
         if(root.left == null && root.right == null)
             return val;
-
         return treePathSum(root.left,val) + treePathSum(root.right,val);
     }
 }

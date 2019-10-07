@@ -5,12 +5,12 @@ public class InsertNodeBST {
         Node rootNode = new Node(50);
         rootNode.left = new Node(20);
         rootNode.right = new Node(30);
-        rootNode.left.left=new Node(10);
-        rootNode.left.right= new Node(15);
-        insert(rootNode,40);
+        rootNode.left.left = new Node(10);
+        rootNode.left.right = new Node(15);
+        insert(rootNode, 40);
     }
 
-    public static Node insert(Node root,int data){
+    public static Node insert(Node root, int data) {
         Node newNode = new Node(data);
 
         if (root == null) {
@@ -18,19 +18,19 @@ public class InsertNodeBST {
         }
 
         Node current = root;
-        Node parent =null;
+        Node parent = null;
 
-        while(current!=null){
+        while (current != null) {
             parent = current;
-            if(data <= current.key){
+            if (data <= current.key) {
                 current = current.left;
-            }else{
+            } else {
                 current = current.right;
             }
         }
 
-        if(data <= parent.key)
-            parent.left =  newNode;
+        if (data <= parent.key)
+            parent.left = newNode;
         else
             parent.right = newNode;
 

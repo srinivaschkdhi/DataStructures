@@ -69,26 +69,26 @@ public class TreeTraversalLevelByLevel {
             return;
         }
         Queue<Node> q = new LinkedList<>();
-        int levelCount = 1;
-        int currentCount = 0;
+        int numOfNodesInCurrLvl = 1;
+        int numOfNodesInNxtLvl = 0;
         q.add(root);
         while(!q.isEmpty()){
-            while(levelCount > 0){
+            while(numOfNodesInCurrLvl > 0){
                 root = q.poll();
                 System.out.print(root.key+" ");
                 if(root.left!=null){
-                    currentCount++;
+                    numOfNodesInNxtLvl++;
                     q.add(root.left);
                 }
                 if(root.right!=null){
-                    currentCount++;
+                    numOfNodesInNxtLvl++;
                     q.add(root.right);
                 }
-                levelCount--;
+                numOfNodesInCurrLvl--;
             }
             System.out.println();
-            levelCount = currentCount;
-            currentCount = 0;
+            numOfNodesInCurrLvl = numOfNodesInNxtLvl;
+            numOfNodesInNxtLvl = 0;
         }
     }
 

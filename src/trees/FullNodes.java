@@ -10,27 +10,28 @@ public class FullNodes {
         rootNode.left = new Node(2);
         rootNode.right = new Node(3);
         rootNode.left.left = new Node(4);
-         rootNode.left.right = new Node(5);
+        rootNode.left.right = new Node(5);
 
         System.out.println(countNumFullNodes(rootNode));
     }
 
     private static int countNumFullNodes(Node root) {
-        if(root == null)
+        if (root == null)
             return 0;
 
         int count = 0;
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             root = queue.poll();
-            if(root.left!=null && root.right!=null)
+            if (root.left != null && root.right != null)
                 count++;
 
-            if(root.left!=null)
+            if (root.left != null)
                 queue.add(root.left);
-            if(root.right!=null)
+
+            if (root.right != null)
                 queue.add(root.right);
 
         }
