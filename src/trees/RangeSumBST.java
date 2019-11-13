@@ -31,4 +31,24 @@ public final class RangeSumBST {
         return rangeSum;
     }
 
+    static int rangeSum = 0;
+
+    public int rangeSumR(Node root, int L, int R) {
+        getRangeSum(root, L, R);
+        return rangeSum;
+    }
+
+    public static void getRangeSum(Node root, int L, int R) {
+        if (root != null){
+            if(root.key <=L && root.key >=R){
+                rangeSum += root.key;
+            }
+
+            if(root.key > L)
+                getRangeSum(root.left,L,R);
+
+            if(root.key < R)
+                getRangeSum(root.right,L,R);
+        }
+    }
 }
