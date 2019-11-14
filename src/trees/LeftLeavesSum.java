@@ -26,7 +26,7 @@ public final class LeftLeavesSum {
             }
 
             if (root.right != null) {
-                if (root.right.left != null && root.right.right != null) { // if not leaf node add to stack only
+                if (root.right.left != null || root.right.right != null) { // if not leaf node add to stack only
                     stack.push(root.right);
                 }
             }
