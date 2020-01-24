@@ -18,7 +18,7 @@ public final class LeftLeavesSum {
             root = stack.pop();
 
             if (root.left != null) {
-                if (root.left.left == null && root.left.right == null) {
+                if (root.left.left == null && root.left.right == null) {//whenever you ar going to left node , checking if it is leaf node.
                     sumOfLtLvs += root.left.key;
                 } else {
                     stack.push(root.left);
@@ -30,8 +30,6 @@ public final class LeftLeavesSum {
                     stack.push(root.right);
                 }
             }
-
-
         }
 
         return sumOfLtLvs;
