@@ -38,7 +38,7 @@ public class TopologicalSort {
         stack.push(v);
     }
 
-    static void topologicalSort(Graph graph){
+    static Integer[] topologicalSort(Graph graph){
         Stack stack = new Stack();
 
         boolean[] visited = new boolean[graph.V];
@@ -49,9 +49,15 @@ public class TopologicalSort {
                 topologicalSortUtil(graph,i,visited,stack);
         }
 
+        Integer[] topSort = new Integer[graph.V];
+        int i = 0;
         while(!stack.isEmpty()){
-            System.out.print(stack.pop() + "->");
+            Integer vertext = (Integer) stack.pop();
+            topSort[i++] = vertext;
+            System.out.print(vertext + "->");
         }
+
+        return topSort;
     }
 
     public static void main(String[] args) {
