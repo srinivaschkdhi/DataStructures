@@ -17,13 +17,15 @@ public class AllPairShortestPath {
             }
         }
 
-        for (k = 0;k < v;k++){
+        for (k = 0;k < v;k++){  //apply on all vertices. check if there is shortest path going through kth vertex.
+
             for(i = 0;i<v;i++){
                 for(j = 0;j<v;j++){
                     if(dist[i][k]+dist[k][j] < dist[i][j])
                         dist[i][j]  = dist[i][k] + dist[k][j];
                 }
             }
+
         }
 
         printSolution(dist);
