@@ -27,7 +27,7 @@ public class KnightMoves {
                 board[r][c] = move_no + 1;
                 boolean isSuccess = solveKnightMove(board, n, move_no + 1, r, c);
 
-                if (isSuccess == true) return true;
+                if (isSuccess == true) return true; // only gets called when moveno=n*n // false is returned when all possible pos tried
                 board[r][c] = 0;
             }
         }
