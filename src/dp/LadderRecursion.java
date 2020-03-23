@@ -4,7 +4,7 @@
 
 package dp;
 
-public class Ladder {
+public class LadderRecursion {
     static int ways(int n) {
         if (n == 0)
             return 1;
