@@ -21,7 +21,7 @@ public class CountSetBits {
 
         while(n > 0){
             count += 1;
-            n = n & (n - 1);
+            n = n & (n - 1); // removes last set bit
         }
 
         return count;
