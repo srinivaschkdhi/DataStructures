@@ -18,12 +18,12 @@ public final class RangeSumBST {
                     rangeSum += root.key;
                 }
 
-                if (root.key > L) {
-                    stack.push(root.left);
+                if (root.key > L) {// if root is not less than 7 . we dont go left.
+                    stack.push(root.left);// as we dont need num < 7.
                 }
 
-                if (root.key < R) {
-                    stack.push(root.right);
+                if (root.key < R) { // if root greater than 15 . we dont go right.
+                    stack.push(root.right); // as we dont need num > 15
                 }
             }
         }

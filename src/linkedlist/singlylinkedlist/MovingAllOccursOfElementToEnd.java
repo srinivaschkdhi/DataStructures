@@ -1,7 +1,5 @@
 package linkedlist.singlylinkedlist;
 
-import java.lang.management.MonitorInfo;
-
 public class MovingAllOccursOfElementToEnd {
     public ListNode moveToEnd(ListNode head, int val) {
         if (head == null || head.next == null)
@@ -26,9 +24,9 @@ public class MovingAllOccursOfElementToEnd {
             if (curr.data == val && prev == null) {
                 next = curr.next;
 
-                curr.next = null;
+                curr.next = null; // delete node
 
-                tail.next = curr;
+                tail.next = curr; // attach to tail
                 tail = tail.next;
 
                 curr = head = next;
@@ -36,11 +34,11 @@ public class MovingAllOccursOfElementToEnd {
             } else if (curr.data == val && prev != null) {
                 next = curr.next;
 
-                prev.next = curr.next;
-                curr.next = null;
+                prev.next = curr.next;  //|delete node
+                curr.next = null;       //|
 
-                tail.next = curr;
-                tail = tail.next;
+                tail.next = curr;      // attach to tail
+                tail = tail.next;      //
 
                 curr = next;
             } else {
@@ -70,7 +68,7 @@ public class MovingAllOccursOfElementToEnd {
 
         ListNode head = first;
 
-        head = movingAllOccursOfElementToEnd.moveToEnd(head,0);
+        head = movingAllOccursOfElementToEnd.moveToEnd(head, 0);
 
         new PrintLinkedList().print(head);
     }

@@ -58,7 +58,7 @@ public class HashMapImpl<K, V> {
         if (foundAt == -1) return null;
         else {
             this.size--;
-            return buckets[bi].get(foundAt).value;
+            return buckets[bi].remove(foundAt).value;
         }
     }
 

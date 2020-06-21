@@ -9,7 +9,9 @@ public class Subsets {
 
     public void generateSubsets(String s){
         int n = s.length();
-        int range = (1 << n) -1;
+        int range = (1 << n) -1; // if n = 3. range = 7 i.e 1 1 1. thats'y range = 2^n - 1
+                                // range means last value. with 3 bits 7 is biggest num we can represent.
+                                // range is 0 to 7 (total 8 ways).
 
         for (int i = 0; i <=range; i++) {
             filterChars(s,i);

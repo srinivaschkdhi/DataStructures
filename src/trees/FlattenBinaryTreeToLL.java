@@ -15,8 +15,8 @@ public class FlattenBinaryTreeToLL {
 
             if (current_node.left != null) stack.push(current_node.left);
 
-            if (!stack.isEmpty()) current_node.right = stack.peek();
-
+            if (!stack.isEmpty()) current_node.right = stack.peek();// the node which is going to be cuur node in next iter.
+            // so cunode.right = this node.
             current_node.left = null;
         }
 

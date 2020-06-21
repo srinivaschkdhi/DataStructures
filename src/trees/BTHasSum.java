@@ -7,7 +7,7 @@ import java.util.Stack;
 public class BTHasSum {
     public boolean hasPathSum(Node root, int sum) {
         Stack<Node> nodeStack = new Stack<>();
-        Stack<Integer> stackSum = new Stack<>();
+        Stack<Integer> stackSum = new Stack<>();// sum left stack
 
         nodeStack.add(root);
         stackSum.add(sum - root.key);
@@ -16,7 +16,7 @@ public class BTHasSum {
             Node currNode = nodeStack.pop();
             int currSum = stackSum.pop();
 
-            if (currNode.left == null && currNode.right == null && currSum == 0) {
+            if (currNode.left == null && currNode.right == null && currSum == 0) { // if it is last end node in a path . sum left = 0
                 return true;
             }
 

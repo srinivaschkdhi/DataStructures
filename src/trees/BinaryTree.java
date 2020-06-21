@@ -93,7 +93,7 @@ public class BinaryTree {
         Stack<Node> stack = new Stack<>();
         while(true){
             if(root!=null)
-            {
+            { // if root != null , add root and move left. if (root == null) pop root move right.
                 stack.push(root);
                 root = root.left;
             }else{
@@ -165,7 +165,6 @@ public class BinaryTree {
             root = stackTwo.pop();
             System.out.print(root.key);
         }
-
     }
 
     static void reverseLevelOrderTraversal(Node root){
@@ -175,13 +174,16 @@ public class BinaryTree {
         Stack<Node> stack = new Stack<>();
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
+
         while(!queue.isEmpty()){
             root = queue.poll();
+            stack.push(root);
+
             if(root.right!=null)
-                    queue.add(root.right);
+                queue.add(root.right);
             if(root.left!=null)
                 queue.add(root.left);
-            stack.push(root);
+
         }
 
         while(!stack.isEmpty()){
