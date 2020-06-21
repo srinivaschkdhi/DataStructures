@@ -25,6 +25,17 @@ public class SiblingsInBT {
         return false;
     }
 
+    public boolean isSiblings(Node node, Node a, Node b) {
+        if (node == null) {
+            return false;
+        }
+
+        return (node.left == a && node.right == b)
+                || (node.left == b && node.right == a)
+                || isSiblings(node.left, a, b)
+                || isSiblings(node.right, a, b);
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
