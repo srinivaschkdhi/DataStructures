@@ -1,6 +1,8 @@
 package graphs;
 
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class WeightedGraph {
     static class Edge {
@@ -58,7 +60,43 @@ public class WeightedGraph {
         addEdge(graph, 4, 5, 6);
 
         printGraph(graph);
+    }
+
+    public static void topologicalSortUtil(Graph graph, int v, boolean[] visited, Stack stack) {
+        visited[v] = true;
+
+        Iterator<Edge> negihs = graph.adjListArr[v].listIterator();
+
+        while (negihs.hasNext()) {
+            Edge edge = negihs.next();
+            int dest = edge.destination;
+            if (visited[dest] == false) {
+                topologicalSortUtil(graph, dest, visited, stack);
+            }
+        }
+
+        stack.push(v);
+    }
+
+    public static Integer[] topologicalSort(Graph graph) {
+        Stack stack = new Stack();
+
+        boolean[] visited = new boolean[graph.v];
 
 
+        for (int i = 0; i < graph.v; i++) {
+            if (visited[i] == false)
+                topologicalSortUtil(graph, i, visited, stack);
+        }
+
+        Integer[] topSort = new Integer[graph.v];
+        int i = 0;
+        while (!stack.isEmpty()) {
+            Integer vertext = (Integer) stack.pop();
+            topSort[i++] = vertext;
+            System.out.print(vertext + "->");
+        }
+
+        return topSort;
     }
 }
