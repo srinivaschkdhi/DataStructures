@@ -11,7 +11,7 @@ public final class LeftLeavesSum {
 
         int sumOfLtLvs = 0;
 
-        Stack<Node> stack = new Stack<>();
+        Stack<Node> stack = new Stack<>();//Can be implemented using queue also.
         stack.push(root);
 
         while (!stack.isEmpty()) {
