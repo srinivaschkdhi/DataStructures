@@ -29,3 +29,5 @@ class MinStack {
         return min;
     }
 }
+//if new element is min,push old min and new min; (so that when removed we can have access to old min before this new element inserted).
+//if poping elment is min pop two times,(as we added new min and old min (both present one after other) new min is second popped element.
