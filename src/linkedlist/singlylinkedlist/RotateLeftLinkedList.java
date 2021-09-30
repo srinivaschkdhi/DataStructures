@@ -33,6 +33,7 @@ public class RotateLeftLinkedList {
         new PrintLinkedList().print(leftRotatedHead);
     }
 }
-// 3. Make last node point to head
-// 1 . Make kth node as head
+// 1. Find k-1 and kth node
 // 2. Make k -1 th node as tail
+// 3. Make last node point to head
+// 4. Make kth node as head
