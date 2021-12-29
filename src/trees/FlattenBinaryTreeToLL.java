@@ -41,3 +41,5 @@ public class FlattenBinaryTreeToLL {
         flatten(rootNode);
     }
 }
+// Just do Pre order traversal
+// During preorder traversal, attach next node.
