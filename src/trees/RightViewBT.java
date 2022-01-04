@@ -140,4 +140,34 @@ public final class RightViewBT {
 
         return result;
     }
+    
+    public void rightVieww(Node root){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        int noOfNodesInCurrLvl = queue.size();
+        int pos = 0;
+        int lastIndex = queue.size();
+
+        while (!queue.isEmpty()) {
+            root = queue.poll();
+            pos += 1;
+
+            if(pos == lastIndex)
+                System.out.println(root);
+
+            if(root.left != null)
+                queue.add(root.left);
+
+            if(root.right != null)
+                queue.add(root.right);
+
+            noOfNodesInCurrLvl--;
+            
+            if(noOfNodesInCurrLvl == 0){
+                pos = 0;
+                noOfNodesInCurrLvl  = queue.size();
+                lastIndex = queue.size();
+            }
+        }
+    }
 }
