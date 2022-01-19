@@ -21,3 +21,11 @@ public class SumTree {
         return sum(node.left) +  node.data + sum(node.right);
     }
 }
+
+
+// SumTree is a Binary Tree where the value of a node is equal to the sum of the nodes present in its left subtree and right subtree
+//                    26
+//                  /   \
+//                10     3
+//              /    \     \
+//            4      6      3
