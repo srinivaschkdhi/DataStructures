@@ -33,6 +33,7 @@ public class MaxHeap {
             maxHeapify(i);
         }
     }
+
     public void insert(int x){
         heap = Arrays.copyOf(heap,size+1);
         int i = size;

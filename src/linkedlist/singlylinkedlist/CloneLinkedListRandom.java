@@ -4,13 +4,12 @@
 
 package linkedlist.singlylinkedlist;
 
-import com.sun.xml.internal.ws.util.xml.CDATA;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 
 public class CloneLinkedListRandom {
-    public Node clone(Node head){
+    public Node clone(Node head) {
         if (head == null) {
             return head;
         }
@@ -18,7 +17,7 @@ public class CloneLinkedListRandom {
         Node curr = head;
         Node next = null;
 
-        while(curr !=null){
+        while (curr != null) {
             next = curr.next;
 
             Node newNode = new Node(curr.data);
@@ -29,33 +28,33 @@ public class CloneLinkedListRandom {
         }
 
         curr = head;
-        while(curr != null){
+        while (curr != null) {
             curr.next.random = curr.random.next;
 
-            if(curr.next!=null)
+            if (curr.next != null)
                 curr = curr.next.next;
             else
                 curr = curr.next;
         }
 
-         Node node = head;
-         Node copy = node.next;
-         Node tempCopy = copy;
+        Node node = head;
+        Node copy = node.next;
+        Node tempCopy = copy;
 
-         while(node != null && copy!=null){
-             if(node.next != null)
-                 node.next = node.next.next;
-             else
-                 node.next = node.next;
+        while (node != null && copy != null) {
+            if (node.next != null)
+                node.next = node.next.next;
+            else
+                node.next = node.next;
 
 
-             if(copy.next != null)
-                 copy.next = copy.next.next;
-             else
-                 copy.next = copy.next;
-         }
+            if (copy.next != null)
+                copy.next = copy.next.next;
+            else
+                copy.next = copy.next;
+        }
 
-         return tempCopy;
+        return tempCopy;
     }
 
     public Node cloneUsingHashmap(Node firstHead) {
@@ -119,12 +118,12 @@ public class CloneLinkedListRandom {
 
 }
 
-class Node{
+class Node {
     Node next;
     Node random;
     int data;
 
-    Node(int data){
+    Node(int data) {
         this.data = data;
         this.next = null;
         this.random = null;

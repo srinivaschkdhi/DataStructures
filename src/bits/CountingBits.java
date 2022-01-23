@@ -1,3 +1,5 @@
+package bits;
+
 public class CountingBits {
     public int[] countBits(int num) {
         int[] dp = new int[num + 1];

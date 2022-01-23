@@ -1,3 +1,5 @@
+package bits;
+
 public class BitwiseANDofNumbersRange {
   public int rangeBitwiseAnd(int m, int n) {
         int count = 0;
