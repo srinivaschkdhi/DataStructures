@@ -1,7 +1,5 @@
 package dp;
 
-import java.util.Arrays;
-
 public class SubsetSum {
     public static boolean isSubsetSumRecursion(int n, int[] arr, int sum) {
         if (sum == 0)
@@ -35,7 +33,7 @@ public class SubsetSum {
                 } else {
                     if (arr[i - 1] <= j) {
                         dp[i][j] = dp[i - 1][j - arr[i - 1]] ||
-                                  dp[i - 1][j];
+                                dp[i - 1][j];
                     } else {
                         dp[i][j] = dp[i - 1][j];
                     }

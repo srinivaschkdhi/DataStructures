@@ -1,6 +1,5 @@
 package graphs;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -23,40 +22,36 @@ public class TopologicalSort {
         graph.adjListArray[src].add(dest);
     }
 
-    static void topologicalSortUtil(Graph graph, int v, boolean[] visited, Stack stack) {
+    public static Integer[] topologicalSort(Graph graph) {
+        Stack stack = new Stack();
+        boolean[] visited = new boolean[graph.V];
+
+        for (int i = 0; i < graph.V; i++)
+            if (!visited[i])
+                dfs(graph, i, visited, stack);
+
+        return stackToArr(graph, stack);
+    }
+
+    private static void dfs(Graph graph, int v, boolean[] visited, Stack stack) {
         visited[v] = true;
 
-        Iterator<Integer> negihs = graph.adjListArray[v].listIterator();
-
-        while (negihs.hasNext()) {
-            int neigh = negihs.next();
-            if (visited[neigh] == false) {
-                topologicalSortUtil(graph, neigh, visited, stack);
-            }
+        for (int x : graph.adjListArray[v]) {
+            if (!visited[x])
+                dfs(graph, x, visited, stack);
         }
 
         stack.push(v);
     }
 
-    static Integer[] topologicalSort(Graph graph) {
-        Stack stack = new Stack();
-
-        boolean[] visited = new boolean[graph.V];
-
-
-        for (int i = 0; i < graph.V; i++) {
-            if (visited[i] == false)
-                topologicalSortUtil(graph, i, visited, stack);
-        }
-
+    private static Integer[] stackToArr(Graph graph, Stack stack) {
         Integer[] topSort = new Integer[graph.V];
         int i = 0;
         while (!stack.isEmpty()) {
-            Integer vertext = (Integer) stack.pop();
-            topSort[i++] = vertext;
-            System.out.print(vertext + "->");
+            Integer vertex = (Integer) stack.pop();
+            topSort[i++] = vertex;
+            System.out.print(vertex + "->");
         }
-
         return topSort;
     }
 
@@ -70,7 +65,6 @@ public class TopologicalSort {
         addEdge(graph, 3, 1);
 
         System.out.println("Following is a Topological sort of given graph");
-
         topologicalSort(graph);
     }
 }
