@@ -20,6 +20,8 @@ public class KnapsackRecur {
         return Math.max(inc, exc);
     }
 
+
+
     public static void main(String[] args) {
         int[] wts = {2,7,3,4};
         int[] prices = {5,20,20,10};
